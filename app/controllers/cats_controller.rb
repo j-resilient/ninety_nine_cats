@@ -23,6 +23,11 @@ class CatsController < ApplicationController
         end
     end
 
+    def edit
+        @cat = Cat.find_by(id: params[:id])
+        render :edit
+    end
+
     private
     def cat_params
         params.require(:cat).permit(:name, :sex, :color, :birth_date, :description)
