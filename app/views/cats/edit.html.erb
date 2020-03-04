@@ -1,5 +1,8 @@
-<h2>Add a Cat</h2>
+<h2>Update Cat</h2>
 
+<%= render 'form', cat: @cat %>
+
+<!--
 <form action=<%= cat_url(@cat) %> method="post">
     <input type="hidden" value="PATCH" name="_method">
 
@@ -32,5 +35,6 @@
     <label for="description">Description</label>
     <textarea name="cat[description]"> <%= @cat.description %> </textarea>
     <br><br>
-    <input type="submit" value="Edit cat">
+    <input type="submit" value="Update cat">
 </form>
+-->
