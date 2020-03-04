@@ -1,6 +1,6 @@
 <h2>Add a Cat</h2>
 
-<form action="/cats" method="post">
+<form action=<%= cat_url(@cat) %> method="post">
     <input type="hidden" value="PATCH" name="_method">
 
     <label for="name">Name</label>
