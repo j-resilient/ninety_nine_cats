@@ -11,6 +11,10 @@ class CatRentalRequest < ApplicationRecord
         CatRentalRequest
             .where(cat_id: self.cat_id)
             .where.not(id: self.id)
-            .where(('start_date >= ? AND start_date <= ?', self.start_date, self.end_date)
+            .where('start_date >= ? AND start_date <= ?', self.start_date, self.end_date)
+    end
+
+    def overlapping_approved_requests
+        overlapping_requests.where(status: "APPROVED")
     end
 end
