@@ -16,7 +16,7 @@
 
     <label for="cat_color">Coat Color</label>
     <select name="cat[color]">
-        <option default>--select a color--</option>
+        <option disabled default>--select a color--</option>
         <% Cat::CAT_COLORS.each do |color| %>
             <option value=<%= color %> ><%= color %></option>
         <% end %>
