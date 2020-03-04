@@ -15,4 +15,10 @@ class Cat < ApplicationRecord
     def age
         time_ago_in_words(self.birth_date)
     end
+
+    has_many :rental_requests,
+        primary_key: :id,
+        foreign_key: :cat_id,
+        class_name: :CatRentalRequest,
+        dependent: :destroy
 end
