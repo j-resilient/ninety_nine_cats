@@ -1,6 +1,6 @@
 class Cat < ApplicationRecord
     include ActionView::Helpers::DateHelper
-    CAT_COLORS = ['black', 'white', 'orange', 'brown']
+    CAT_COLORS = %w(black white orange brown).freeze
 
     validates :name, :birth_date, :color, :sex, presence: true
     validates :color, inclusion: {
@@ -11,7 +11,7 @@ class Cat < ApplicationRecord
         in: %w(M F),
         message: "must be M or F."
     }
-
+    
     def age
         time_ago_in_words(self.birth_date)
     end
