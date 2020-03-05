@@ -33,7 +33,9 @@ class CatRentalRequest < ApplicationRecord
     end
 
     def does_not_overlap_approved_request
-        overlapping_approved_requests.exists?
+        if overlapping_approved_requests.exists?
+            errors[:overlapping] << "request already approved"
+        end
     end
 
     def overlapping_pending_requests
