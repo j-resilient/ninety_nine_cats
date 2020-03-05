@@ -24,6 +24,10 @@ class CatRentalRequest < ApplicationRecord
         self.update_attributes(status: "DENIED")
     end
 
+    def pending?
+        self.status == "PENDING"        
+    end
+
     private
     def overlapping_requests
         CatRentalRequest
