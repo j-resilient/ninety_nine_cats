@@ -8,7 +8,19 @@ class CatRentalRequest < ApplicationRecord
         foreign_key: :cat_id,
         class_name: :Cat
 
-    # private
+    def approve!
+        # transaction makes sure that if either of these lines raises an error, 
+        # neither is permanently saved to the database
+        # aka making sure it's all one transaction
+        # update_attributes! takes a hash, changes the given attribute, and then calls save!
+        # which will raise an error if something goes wrong
+        ActiveRecord::Base.transaction do
+            self.update_attributes!(status: "APPROVED")
+            overlapping_pending_requests.map { |request| request.update_attributes!(status: "DENIED") }
+        end
+    end
+
+    private
     def overlapping_requests
         CatRentalRequest
             .where(cat_id: self.cat_id)
@@ -27,4 +39,5 @@ class CatRentalRequest < ApplicationRecord
     def overlapping_pending_requests
         overlapping_requests.where(status: "PENDING")
     end
+
 end
