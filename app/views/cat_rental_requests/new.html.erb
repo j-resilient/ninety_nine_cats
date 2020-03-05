@@ -1,21 +1,27 @@
-<h2>Make a rental request</h2>
-<form action="/cat_rental_requests" method="post">
-    <label for="request[cat_id]">Cat</label>
-    <select name="request[cat_id]">
-        <option disabled selected>--pick a cat--</option>
-        <% @cats.each do |cat| %>
-            <option value=<%= cat.id %> ><%= cat.name %></option>
-        <% end %>
-    </select>
-    <br>
+<main>
+    <section class="flex page">
+        <div class="centered-box">
+            <h1>Make a rental request</h1>
+            <form action="/cat_rental_requests" method="post">
+                <label for="request[cat_id]">Cat</label>
+                <select name="request[cat_id]">
+                    <option disabled selected>--pick a cat--</option>
+                    <% @cats.each do |cat| %>
+                        <option value=<%= cat.id %> ><%= cat.name %></option>
+                    <% end %>
+                </select>
+                <br>
 
-    <label for="request[start_date]">Start date</label>
-    <input type="date" name="request[start_date]">
-    <br>
+                <label for="request[start_date]">Start date</label>
+                <input type="date" name="request[start_date]">
+                <br>
 
-    <label for="request[end_date]">End date</label>
-    <input type="date" name="request[end_date]">
-    <br><br>
+                <label for="request[end_date]">End date</label>
+                <input type="date" name="request[end_date]">
+                <br><br>
 
-    <input type="submit" value="Submit request">
-</form>
+                <input type="submit" value="Submit request">
+            </form>
+        </div>
+    </section>
+</main>

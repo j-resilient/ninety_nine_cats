@@ -1,42 +1,51 @@
-<% if cat.persisted? %>
-    <% action_url = cat_url(cat) %>
-<% else %>
-    <% action_url = cats_url %>
-<% end %>
 
-<form action=<%= action_url %> method="post">
-    <% if cat.persisted? %>
-        <input type="hidden" value="PATCH" name="_method">
-    <% end %>
+<main>
+    <section class="flex page">
+        <div class="centered-box">
+            <% if cat.persisted? %>
+                <h1>Update Cat</h1>
+                <% action_url = cat_url(cat) %>
+            <% else %>
+                <h1>New Cat</h1>
+                <% action_url = cats_url %>
+            <% end %>
 
-    <label for="name">Name</label>
-    <input type="text" name="cat[name]" value=<%= cat.name %>> 
-    <br>
+            <form action=<%= action_url %> method="post">
+                <% if cat.persisted? %>
+                    <input type="hidden" value="PATCH" name="_method">
+                <% end %>
 
-    <div>
-        <label>Sex</label>
-        <label for="cat_sex_f">Female</label>
-        <input name="cat[sex]" type="radio" value="F" <%= cat.sex == "F" ? "checked" : "" %> >
-        <label for="cat_sex_m">Male</label>
-        <input name="cat[sex]" type="radio" value="M" <%= cat.sex == "M" ? "checked" : "" %>
-    </div> 
-    <br>
+                <label for="name">Name</label>
+                <input type="text" name="cat[name]" value=<%= cat.name %>> 
+                <br>
 
-    <label for="cat_color">Coat Color</label>
-    <select name="cat[color]">
-        <option disabled <%= cat.color ? "" : "selected" %> >--select a color--</option>
-        <% Cat::CAT_COLORS.each do |color| %>
-            <option value=<%= color %> <%= cat.color == color ? "selected" : "" %> ><%= color %></option>
-        <% end %>
-    </select>
-    <br>
+                <div>
+                    <label>Sex</label>
+                    <input name="cat[sex]" type="radio" value="F" <%= cat.sex == "F" ? "checked" : "" %> >
+                    <label for="cat_sex_f">Female</label>
+                    <input name="cat[sex]" type="radio" value="M" <%= cat.sex == "M" ? "checked" : "" %> >
+                    <label for="cat_sex_m">Male</label>
+                </div> 
+                <br>
 
-    <label for="birth_date">Birth Date</label>
-    <input type="date" name="cat[birth_date]" value=<%= cat.birth_date %> >
-    <br>
+                <label for="cat_color">Coat Color</label>
+                <select name="cat[color]">
+                    <option disabled <%= cat.color ? "" : "selected" %> >--select a color--</option>
+                    <% Cat::CAT_COLORS.each do |color| %>
+                        <option value=<%= color %> <%= cat.color == color ? "selected" : "" %> ><%= color %></option>
+                    <% end %>
+                </select>
+                <br>
 
-    <label for="description">Description</label>
-    <textarea name="cat[description]"> <%= cat.description %> </textarea>
-    <br><br>
-    <input type="submit" value=<%= cat.persisted? ? "Update cat" : "Create cat" %>>
-</form>
+                <label for="birth_date">Birth Date</label>
+                <input class="cat-birth-date" type="date" name="cat[birth_date]" value=<%= cat.birth_date %> >
+                <br>
+
+                <label for="description">Description</label>
+                <textarea name="cat[description]"> <%= cat.description %> </textarea>
+                <br><br>
+                <input type="submit" value=<%= cat.persisted? ? "Update cat" : "Create cat" %>>
+            </form>
+        </div>
+    </section>
+</main>

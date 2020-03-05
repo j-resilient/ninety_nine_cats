@@ -101,4 +101,20 @@ th {
 td {
     color: black;
 }
+/* Form Styles */
+form {
+    font-family: 'Amatic SC', cursive;
+}
+label {
+    font-weight: bold;
+    margin: 15px 0;
+    color: black;
+}
+select, input, textarea {
+    background-color: #009999;
+    border: 0px;
+    border-bottom: 5px solid yellow;
+    font: inherit;
+}
+
 
