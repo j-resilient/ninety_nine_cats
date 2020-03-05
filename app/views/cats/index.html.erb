@@ -1,6 +1,19 @@
-<h1>Cats</h1>
-<ul>
-    <% @cats.each do |cat| %>
-        <li><%= link_to cat.name, cat_url(id: cat.id) %></li>
-    <% end %>
-</ul>
+<main>
+    <section class="index-cats">
+        <nav class="flex">
+            <h1>ALL OF THE CATS IN THE WORLD</h1>
+            <%= link_to "ADD CAT",  new_cat_url %>
+        </nav>
+        <section class="flex cat-index">
+                <% @cats.each do |cat| %>
+                    <div class="flex cat-index-item">
+                        <div>
+                            <img src="http://placekitten.com/g/231/231" alt="Cat">
+                            <br>
+                            <%= link_to "Rent #{cat.name}", cat_url(id: cat.id) %>
+                        </div>
+                    </div>
+                <% end %>
+        </section>
+    </section>
+</main>

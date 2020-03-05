@@ -13,3 +13,70 @@
  *= require_tree .
  *= require_self
  */
+ html, body, main, section, article, h1, h2, p {
+    margin: 0;
+    border: 0;
+    padding: 0;
+
+    font: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    color: inherit;
+    background: transparent;
+}
+body {
+    box-sizing: border-box;
+    font-family: 'Amatic SC', cursive;
+    color: yellow;
+}
+.flex {
+    display: flex;
+}
+header {
+    background-color: #000066;
+    width: 100%;
+    height: 60px;
+}
+header h1 {
+    margin-left: 20px;
+    line-height: 100%;
+}
+a {
+    color: yellow;
+}
+h1 {
+    font-size: 60px;
+}
+main {
+    background: transparent;
+}
+.index-cats {
+    margin: 50px auto;
+    width: 920px;
+    background-color: #009999;
+}
+nav {
+    background-color: #000066;
+    justify-content: space-between;
+    align-items: center;
+}
+nav a {
+    padding: 0 10px;
+    font-size: 30px;
+}
+.cat-index {
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: 30px;
+}
+.cat-index-item {
+    padding: 20px;
+    margin: 20px 0;
+    width: 235px;
+    height: 280px;
+    align-items: center;
+    justify-content: center;
+    background-color: #000066;
+}
+

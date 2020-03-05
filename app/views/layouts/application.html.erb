@@ -6,9 +6,13 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet"> 
   </head>
 
   <body>
+    <header>
+      <h1><%= link_to '99 CATS', cats_url %></h1>
+    </header>
     <%= yield %>
   </body>
 </html>
