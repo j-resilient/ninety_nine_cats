@@ -49,6 +49,7 @@ h1 {
 }
 main {
     background: transparent;
+    font-size: 30px;
 }
 .index-cats {
     margin: 50px auto;
@@ -78,5 +79,26 @@ nav a {
     align-items: center;
     justify-content: center;
     background-color: #000066;
+}
+.page {
+    justify-content: space-around;
+}
+.centered-box {
+    background-color: #009999;
+    width: 500px;
+    margin: 50px 0;
+    text-align: center;
+    padding: 50px;
+}
+table {
+    background-color: white;
+    margin: auto;
+}
+th {
+    background-color: #000066;
+    padding: 10px 20px;
+}
+td {
+    color: black;
 }
 
