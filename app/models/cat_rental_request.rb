@@ -8,7 +8,7 @@ class CatRentalRequest < ApplicationRecord
         foreign_key: :cat_id,
         class_name: :Cat
 
-    private
+    # private
     def overlapping_requests
         CatRentalRequest
             .where(cat_id: self.cat_id)
@@ -22,5 +22,9 @@ class CatRentalRequest < ApplicationRecord
 
     def does_not_overlap_approved_request
         overlapping_approved_requests.exists?
+    end
+
+    def overlapping_pending_requests
+        overlapping_requests.where(status: "PENDING")
     end
 end
