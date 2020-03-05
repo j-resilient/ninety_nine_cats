@@ -20,6 +20,10 @@ class CatRentalRequest < ApplicationRecord
         end
     end
 
+    def deny!
+        self.update_attributes(status: "DENIED")
+    end
+
     private
     def overlapping_requests
         CatRentalRequest
