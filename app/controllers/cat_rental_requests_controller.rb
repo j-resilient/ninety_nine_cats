@@ -16,11 +16,6 @@ class CatRentalRequestsController < ApplicationController
 
     def approve_or_deny
         request = CatRentalRequest.find_by(id: params[:id])
-        # if params[:option] == "approve"
-        #     request.approve!
-        # else
-        #     request.deny!
-        # end
         params[:option] == "approve" ? request.approve! : request.deny!
         redirect_to cat_url(id: request.cat_id)       
     end
